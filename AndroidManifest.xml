@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="ru.qupol.Hello2App"
+          android:versionCode="1"
+          android:versionName="1.0">
+    <uses-sdk android:minSdkVersion="15"/>
+    <application android:label="@string/app_name" android:icon="@drawable/ic_launcher">
+        <activity android:name="ru.qupol.MonopolyHelper.Activity.MyActivity"
+                  android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="ru.qupol.MonopolyHelper.Activity.NewGameActivity" android:label="Новая игра"/>
+        <activity android:name="ru.qupol.MonopolyHelper.Activity.PlayersSettingsActivity"/>
+        <activity android:name="ru.qupol.MonopolyHelper.Activity.PlayersListActivity"/>
+        <activity android:name="ru.qupol.MonopolyHelper.Activity.PlayerPanelActivity"/>
+        <activity android:name="ru.qupol.MonopolyHelper.Activity.SendToActivity"/>
+    </application>
+</manifest>

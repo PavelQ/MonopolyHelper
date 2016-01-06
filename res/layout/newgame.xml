@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:hint="@string/init_hint_start_balance"
+            android:ems="15"
+            android:id="@+id/startBalance"
+            android:layout_gravity="center_horizontal">
+        <requestFocus/>
+    </EditText>
+
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:hint="@string/init_hint_income"
+            android:ems="15"
+            android:id="@+id/income"
+            android:layout_gravity="center_horizontal"
+            />
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:hint="@string/playersCount"
+            android:ems="15"
+            android:id="@+id/PlayersCount"
+            android:layout_gravity="center_horizontal"
+            android:digits="2345678"
+            android:maxLength="1"
+
+            />
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nextText"
+            android:id="@+id/bPlayersSettings" android:layout_gravity="center_horizontal"/>
+</LinearLayout>

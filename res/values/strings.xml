@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Monopoly Helper</string>
+    <string name="init_hint_start_balance">Start balance</string>
+    <string name="init_hint_income">Income</string>
+    <string name="init_hint_players_count">Count of players</string>
+    <string name="validate_newGame_error_playersCount">must be 2–8</string>
+    <string name="nextText">Next</string>
+    <string name="main_first_view_text">Hello World, MyActivity</string>
+    <string name="new_game_text">New game</string>
+    <string name="settings_text">Settings</string>
+    <string name="playersCount">playersCount</string>
+    <string name="playerNameText">Name of player</string>
+    <string name="incomeText">Income</string>
+    <string name="OkButtonText">OK</string>
+    <string name="CancelButtonText">Cancel</string>
+    <string name="ExitDialogText">Do you want to exit?</string>
+    <string name="increaseText">+</string>
+    <string name="decreaseText">-</string>
+    <string name="notEnoughMoney">not enough money</string>
+    <string name="transferMoneyText">transfer money</string>
+
+
+</resources>
