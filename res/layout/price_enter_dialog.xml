@@ -9,7 +9,10 @@
             android:id="@+id/editTextKeywordsToBlock"
             android:inputType="number"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content"
+            android:digits="1234567890*"
+    >
+
         <requestFocus />
     </EditText>
 

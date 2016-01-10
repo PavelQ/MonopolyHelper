@@ -1,6 +1,7 @@
 package ru.qupol.MonopolyHelper.Watcher;
 
 import android.text.Editable;
+import android.text.SpannableStringBuilder;
 import android.text.TextWatcher;
 import android.widget.TextView;
 
@@ -8,14 +9,17 @@ import android.widget.TextView;
 /**
  * Created by Pavel on 20.09.2015.
  */
-public class MoneyWather implements TextWatcher {
+public class MoneyWatcher implements TextWatcher {
 
 
     private TextView textView;
 
-    public MoneyWather(TextView textView) {
+    public MoneyWatcher(TextView textView) {
         this.textView = textView;
 
+    }
+
+    public MoneyWatcher() {
     }
 
     @Override
@@ -42,7 +46,8 @@ public class MoneyWather implements TextWatcher {
             boolean hasThousands = countString.substring(kStart).equals("000");
             if (hasThousands) {
                 String countK = countString.substring(0, kStart + 1) + "K";
-                textView.setText(countK);
+//                textView.setText(countK);
+                s= new SpannableStringBuilder(countK);
             }
         }
 

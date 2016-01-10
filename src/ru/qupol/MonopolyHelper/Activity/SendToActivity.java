@@ -32,7 +32,7 @@ public class SendToActivity extends PlayersListActivity {
                     finish();
                 }
             });
-            if (player == sender) {
+            if (player != sender) {
                 layout.addView(relativeLayout);
             }
         }

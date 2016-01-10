@@ -9,7 +9,7 @@ import android.widget.TextView;
 import ru.qupol.MonopolyHelper.Dialog.PriceEnterDialog;
 import ru.qupol.MonopolyHelper.Entity.Player;
 import ru.qupol.MonopolyHelper.Facade;
-import ru.qupol.Hello2App.R;
+import ru.qupol.MonopolyHelper.R;
 
 /**
  * Created by Pavel on 27.09.2015.
@@ -83,8 +83,8 @@ public class PlayerPanelActivity extends Activity {
     }
 
     private Button incomeButtonSettings() {
-        Button incomeBtutton = (Button) findViewById(R.id.playerPanelIncomeBtn);
-        incomeBtutton.setOnClickListener(new View.OnClickListener() {
+        Button incomeButton = (Button) findViewById(R.id.playerPanelIncomeBtn);
+        incomeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 int incomeValue = Facade.getGameDAO().getGame().getIncomeValue();
@@ -92,7 +92,7 @@ public class PlayerPanelActivity extends Activity {
                 updateBalance();
             }
         });
-        return  incomeBtutton;
+        return  incomeButton;
     }
 
     private  Button plusButtonSettings(){

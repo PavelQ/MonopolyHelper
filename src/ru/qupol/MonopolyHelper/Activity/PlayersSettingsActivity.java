@@ -10,7 +10,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import ru.qupol.MonopolyHelper.Entity.Player;
 import ru.qupol.MonopolyHelper.Facade;
-import ru.qupol.Hello2App.R;
+import ru.qupol.MonopolyHelper.R;
 
 /**
  * Created by Pavel on 20.09.2015.

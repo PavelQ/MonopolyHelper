@@ -3,7 +3,7 @@ package ru.qupol.MonopolyHelper.Dialog;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import ru.qupol.Hello2App.R;
+import ru.qupol.MonopolyHelper.R;
 
 /**
  * Created by Pavel on 29.09.2015.

@@ -9,8 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import ru.qupol.Hello2App.R;
 import ru.qupol.MonopolyHelper.Facade;
+import ru.qupol.MonopolyHelper.R;
 
 /**
  * Created by Pavel on 20.09.2015.

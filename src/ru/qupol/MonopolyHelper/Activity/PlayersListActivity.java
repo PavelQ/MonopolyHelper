@@ -11,7 +11,9 @@ import android.widget.TextView;
 import ru.qupol.MonopolyHelper.Dialog.ExitDialog;
 import ru.qupol.MonopolyHelper.Entity.Player;
 import ru.qupol.MonopolyHelper.Facade;
-import ru.qupol.Hello2App.R;
+import ru.qupol.MonopolyHelper.R;
+import ru.qupol.MonopolyHelper.Utils.ViewUtils;
+import ru.qupol.MonopolyHelper.Watcher.MoneyWatcher;
 
 import java.util.List;
 
@@ -87,7 +89,8 @@ public class PlayersListActivity extends Activity {
 
         TextView balanceTV = new TextView(getApplicationContext());
         balanceTV.setTextAppearance(getApplicationContext(), android.R.style.TextAppearance_DeviceDefault_Medium);
-        balanceTV.setText(Integer.toString(playerBalance));
+//        balanceTV.setText(Integer.toString(playerBalance));
+        balanceTV.setText(ViewUtils.MoneyStringFormat(playerBalance));
         relativeLayout.addView(balanceTV);
         RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) balanceTV.getLayoutParams();
         params.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);

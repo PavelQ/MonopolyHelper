@@ -5,7 +5,7 @@ import android.content.Context;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import ru.qupol.Hello2App.R;
+import ru.qupol.MonopolyHelper.R;
 
 /**
  * Created by Pavel on 29.09.2015.
@@ -46,7 +46,10 @@ public abstract class PriceEnterDialog extends Dialog {
     }
 
     public String getEditText(){
-        return priceEditText.getText().toString();
+        return formatEditText(priceEditText.getText().toString());
+    }
+    private String formatEditText(String unformatted){
+        return unformatted.replaceAll("\\*","000");
     }
     public void setEditText(String text){
         priceEditText.setText(text);
