@@ -13,12 +13,12 @@ import ru.qupol.MonopolyHelper.Entity.Player;
 import ru.qupol.MonopolyHelper.Facade;
 import ru.qupol.MonopolyHelper.R;
 import ru.qupol.MonopolyHelper.Utils.ViewUtils;
-import ru.qupol.MonopolyHelper.Watcher.MoneyWatcher;
 
 import java.util.List;
 
 /**
  * Created by Pavel on 22.09.2015.
+ * Window with a list of players and their balance
  */
 public class PlayersListActivity extends Activity {
    protected LinearLayout mainLayout;

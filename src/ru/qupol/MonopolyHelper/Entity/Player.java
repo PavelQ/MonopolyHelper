@@ -1,7 +1,10 @@
 package ru.qupol.MonopolyHelper.Entity;
 
+import java.util.List;
+
 /**
  * Created by Pavel on 20.09.2015.
+ * Entity for a players
  */
 public class Player {
 
@@ -53,6 +56,19 @@ public class Player {
     public boolean sendBalanceTo(Player getterPlayer, int getCount) {
         if (decreaseBalance(getCount)) {
             getterPlayer.addBalance(getCount);
+            return true;
+        } else
+            return false;
+    }
+
+    public boolean sendBalanceTo(List<Player> players, int getCount) {
+        int otherPlayersCount = players.size() - 1;
+        if (decreaseBalance(getCount * otherPlayersCount)) {
+            for (Player player : players) {
+                if (player != this) {
+                    player.addBalance(getCount);
+                }
+            }
             return true;
         } else
             return false;

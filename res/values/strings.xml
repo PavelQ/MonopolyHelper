@@ -19,6 +19,7 @@
     <string name="decreaseText">-</string>
     <string name="notEnoughMoney">not enough money</string>
     <string name="transferMoneyText">transfer money</string>
+    <string name="price_enter_star_replace_tip">enter * as 000</string>
 
 
 </resources>

@@ -20,6 +20,7 @@
     <string name="notEnoughMoney">Не достаточно средств</string>
     <string name="transferMoneyText">Перевести средства</string>
     <string name="enterPriceText">Введите сумму</string>
+    <string name="price_enter_star_replace_tip">символ * используется как 000(1к)</string>
 
 
 </resources>

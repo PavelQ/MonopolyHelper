@@ -4,7 +4,12 @@
               android:layout_height="fill_parent"
               android:orientation="vertical" >
 
-
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/price_enter_star_replace_tip"
+    />
     <EditText
             android:id="@+id/editTextKeywordsToBlock"
             android:inputType="number"
