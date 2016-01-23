@@ -6,7 +6,7 @@
     <!--<string name="init_hint_players_count">Колличество игроков</string>-->
     <string name="validate_newGame_error_playersCount">должно быть 2–8</string>
     <string name="nextText">Далее</string>
-    <string name="main_first_view_text">Hello World, MyActivity</string>
+    <string name="main_first_view_text">Main</string>
     <string name="new_game_text">Новая игра</string>
     <string name="settings_text">Настройки</string>
     <string name="playersCount">Колличество игроков</string>
@@ -21,6 +21,9 @@
     <string name="transferMoneyText">Перевести средства</string>
     <string name="enterPriceText">Введите сумму</string>
     <string name="price_enter_star_replace_tip">символ * используется как 000(1к)</string>
+    <string name="money_transaction_error">Ошибка при перечислении средств</string>
+    <string name="not_enough_money_for_send_all">Не досточно средств для перечисления всем игрокам.</string>
+    <string name="getFromAllText">получить со всех</string>
 
 
 </resources>

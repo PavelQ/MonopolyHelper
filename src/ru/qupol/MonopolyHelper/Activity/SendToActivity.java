@@ -40,8 +40,8 @@ public class SendToActivity extends PlayersListActivity {
             }
         }
         RelativeLayout relativeLayoutAll = createPlayerBar("все", 0, new View.OnClickListener() {
-            final String errorTitle = "Ошибка при перечислении средств";
-            final String errorMessage = "Не досточно средств для перечисления всем игрокам.";
+            final String errorTitle = getString(R.string.money_transaction_error);
+            final String errorMessage = getString(R.string.not_enough_money_for_send_all);
             final String okText = getApplicationContext().getResources().getString(R.string.OkButtonText);
 
             @Override

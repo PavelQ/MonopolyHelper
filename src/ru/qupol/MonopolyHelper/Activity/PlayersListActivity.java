@@ -21,7 +21,8 @@ import java.util.List;
  * Window with a list of players and their balance
  */
 public class PlayersListActivity extends Activity {
-   protected LinearLayout mainLayout;
+    protected LinearLayout mainLayout;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +30,7 @@ public class PlayersListActivity extends Activity {
         setContentView(R.layout.players_list);
 
         mainLayout = (LinearLayout) findViewById(R.id.playersList);
-       updatePlayerList();
+        updatePlayerList();
 
 
     }
@@ -39,8 +40,8 @@ public class PlayersListActivity extends Activity {
         ExitDialog.show(this, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-               Facade.getPlayerDAO().clear();
-               finish();
+                Facade.getPlayerDAO().clear();
+                finish();
             }
         });
     }
@@ -51,35 +52,39 @@ public class PlayersListActivity extends Activity {
         updatePlayerList();
     }
 
-    protected void updatePlayerList(){
+    protected void updatePlayerList() {
         mainLayout.removeAllViewsInLayout();
         fillPlayers(mainLayout);
     }
 
-    private View.OnClickListener onClickGoToPlayerPanel(final int playerId){
-        final Intent intent = new Intent(getApplicationContext(),PlayerPanelActivity.class);
-       return new View.OnClickListener() {
+    private View.OnClickListener onClickGoToPlayerPanel(final int playerId) {
+        final Intent intent = new Intent(getApplicationContext(), PlayerPanelActivity.class);
+        return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent.putExtra("playerId",playerId);
+                intent.putExtra("playerId", playerId);
                 startActivity(intent);
             }
         };
     }
 
     protected void fillPlayers(LinearLayout layout) {
-
         List<Player> players = Facade.getPlayerDAO().getAll();
-        for (final Player player : players) {
-
-            RelativeLayout relativeLayout = createPlayerBar(player.getName(),player.getBalance(),onClickGoToPlayerPanel(player.getId()));
+        for (Player player : players) {
+            RelativeLayout relativeLayout = createPlayerBar(player);
             layout.addView(relativeLayout);
-
         }
-
     }
 
-    protected RelativeLayout createPlayerBar(String playerName, int playerBalance, View.OnClickListener clickListener){
+    /**
+     * Create String-Layout with player name and his balance, also add on click event for it
+     *
+     * @param playerName    name for show
+     * @param playerBalance balance for show
+     * @param clickListener click event
+     * @return prepared layout
+     */
+    protected RelativeLayout createPlayerBar(String playerName, int playerBalance, View.OnClickListener clickListener) {
         RelativeLayout relativeLayout = new RelativeLayout(getApplicationContext());
 
         TextView nameTV = new TextView(getApplicationContext());
@@ -97,6 +102,10 @@ public class PlayersListActivity extends Activity {
         balanceTV.setLayoutParams(params);
         relativeLayout.setOnClickListener(clickListener);
         return relativeLayout;
+    }
+
+    protected RelativeLayout createPlayerBar(Player player) {
+        return createPlayerBar(player.getName(), player.getBalance(), onClickGoToPlayerPanel(player.getId()));
     }
 
 }

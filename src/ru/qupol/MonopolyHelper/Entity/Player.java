@@ -76,7 +76,9 @@ public class Player {
 
     @Override
     public String toString() {
-        return String.valueOf(getId()) + ": " + getName() + "(" + getBalance() + ")";
+        return
+//                String.valueOf(getId()) + ": " +
+                        getName() + "(" + getBalance() + ")";
     }
 
     @Override

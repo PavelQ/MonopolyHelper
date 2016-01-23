@@ -6,7 +6,7 @@
     <string name="init_hint_players_count">Count of players</string>
     <string name="validate_newGame_error_playersCount">must be 2–8</string>
     <string name="nextText">Next</string>
-    <string name="main_first_view_text">Hello World, MyActivity</string>
+    <string name="main_first_view_text">Main</string>
     <string name="new_game_text">New game</string>
     <string name="settings_text">Settings</string>
     <string name="playersCount">playersCount</string>
@@ -20,6 +20,9 @@
     <string name="notEnoughMoney">not enough money</string>
     <string name="transferMoneyText">transfer money</string>
     <string name="price_enter_star_replace_tip">enter * as 000</string>
+    <string name="money_transaction_error">Transaction error</string>
+    <string name="not_enough_money_for_send_all">Not enough money for a send to all players.</string>
+    <string name="getFromAllText">get from all</string>
 
 
 </resources>

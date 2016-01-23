@@ -11,6 +11,9 @@ import ru.qupol.MonopolyHelper.Entity.Player;
 import ru.qupol.MonopolyHelper.Facade;
 import ru.qupol.MonopolyHelper.R;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Pavel on 27.09.2015.
  */
@@ -29,20 +32,58 @@ public class PlayerPanelActivity extends Activity {
         this.balanceTV = (TextView) findViewById(R.id.playerPanelBalanceTV);
         setName();
         updateBalance();
-
         setButtonClick();
-
     }
 
     private void setButtonClick() {
         //onclick button
 
-        Button incomeBtutton = incomeButtonSettings();
+        incomeButtonSettings();
+        plusButtonSettings();
+        minusButtonSettings();
+        sendToButtonSettings();
+        getFromAllButtonSettings();
 
-        Button plusButton = plusButtonSettings();
-        Button minusButton =  minusButtonSettings();
-        Button sendToButton = sendToButtonSettings();
 
+    }
+
+    private Button getFromAllButtonSettings() {
+        Button getFromAllButton = (Button) findViewById(R.id.playerPanelGetFromAllBtn);
+        getFromAllButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PriceEnterDialog priceEnterDialog = new PriceEnterDialog(PlayerPanelActivity.this) {
+                    @Override
+                    public void onOkClick() {
+                        List<Player> otherPlayers = Facade.getPlayerDAO().getAll();
+                        otherPlayers.remove(player);
+                        int balanceToDec = Integer.parseInt(this.getEditText());
+                        List<Player> notEnoughMoneyPlayers = null;
+                        for (Player plr : otherPlayers) {
+                            if (plr.getBalance() - balanceToDec < 0) {
+                                if (notEnoughMoneyPlayers == null) {
+                                    notEnoughMoneyPlayers = new ArrayList<>();
+                                }
+                                notEnoughMoneyPlayers.add(plr);
+                            }
+                        }
+                        if(notEnoughMoneyPlayers == null){
+                            for (Player plr : otherPlayers){
+                                plr.sendBalanceTo(player,balanceToDec);
+                            }
+                            updateBalance();
+                            this.dismiss();
+                        }
+                        else{
+                            this.getPriceEditText().setError(getResources().getString(R.string.notEnoughMoney) + " "+ notEnoughMoneyPlayers.toString());
+                        }
+                    }
+                };
+                priceEnterDialog.show();
+
+            }
+        });
+        return null;
     }
 
     private Button sendToButtonSettings() {
@@ -56,11 +97,11 @@ public class PlayerPanelActivity extends Activity {
                         int balanceToInc = Integer.parseInt(this.getEditText());
                         int preparedResult = player.getBalance() - balanceToInc;
                         if (preparedResult >= 0) {
-                            Intent intent = new Intent(this.getContext(),SendToActivity.class);
-                            intent.putExtra("senderPlayerId",player.getId());
-                            intent.putExtra("sendValue",balanceToInc);
+                            Intent intent = new Intent(this.getContext(), SendToActivity.class);
+                            intent.putExtra("senderPlayerId", player.getId());
+                            intent.putExtra("sendValue", balanceToInc);
                             int requestCode = 0; // nothing
-                            startActivityForResult(intent,requestCode);
+                            startActivityForResult(intent, requestCode);
                             this.dismiss();
 
                         } else {
@@ -77,7 +118,7 @@ public class PlayerPanelActivity extends Activity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(resultCode == RESULT_OK){
+        if (resultCode == RESULT_OK) {
             finish();
         }
     }
@@ -92,10 +133,10 @@ public class PlayerPanelActivity extends Activity {
                 updateBalance();
             }
         });
-        return  incomeButton;
+        return incomeButton;
     }
 
-    private  Button plusButtonSettings(){
+    private Button plusButtonSettings() {
         Button plusButton = (Button) findViewById(R.id.playerPanelIncreaseBtn);
         plusButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -112,7 +153,7 @@ public class PlayerPanelActivity extends Activity {
                 priceEnterDialog.show();
             }
         });
-        return  plusButton;
+        return plusButton;
     }
 
     private Button minusButtonSettings() {
@@ -142,6 +183,9 @@ public class PlayerPanelActivity extends Activity {
         return minusButon;
     }
 
+    /**
+     * Update balance on current player panel
+     */
     private void updateBalance() {
         //set ballance
         TextView balanceView = this.balanceTV;
